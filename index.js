@@ -10,7 +10,7 @@ const listrouter = require("./routes/list");
 const helmet = require("helmet");
 const cors = require("cors");
 const xss = require("xss-clean");
-const rateLimiter = require("express-rate-limit");
+// const rateLimiter = require("express-rate-limit");
 
 //Database connection
 mongoose.set("strictQuery", true);
@@ -24,12 +24,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-app.use(
-  rateLimiter({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
-  })
-);
+
+
 
 //middleware
 app.use(express.json());
